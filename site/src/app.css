@@ -1,0 +1,54 @@
+@import "tailwindcss";
+@import "@fontsource-variable/inter";
+@import "@fontsource-variable/jetbrains-mono";
+
+/* font-display: swap override -- fontsource already includes this, but explicit here
+   as documentation and safety net against fontsource package changes */
+@font-face {
+  font-family: 'Inter Variable';
+  font-display: swap;
+}
+@font-face {
+  font-family: 'JetBrains Mono Variable';
+  font-display: swap;
+}
+
+@theme {
+  --color-ez-dark:   #0A0A0A;
+  --color-ez-light:  #FAFAFA;
+  --color-ez-yellow: #F4C430;
+  --color-ez-blue:   #0066FF;
+  --color-ez-green:  #00CC66;
+  --color-ez-purple: #8B5CF6;
+  --color-ez-border-light: #E5E5E5;
+  --color-ez-border-dark:  #262626;
+
+  --font-sans: 'Inter Variable', ui-sans-serif, system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono Variable', ui-monospace, 'Courier New', monospace;
+}
+
+@layer base {
+  html {
+    background-color: var(--color-ez-dark);
+    color: var(--color-ez-light);
+    font-family: var(--font-sans);
+    scroll-behavior: smooth;
+  }
+  code, pre {
+    font-family: var(--font-mono);
+  }
+
+  /* Global focus-visible styles for keyboard navigation */
+  :focus-visible {
+    outline: 2px solid var(--color-ez-yellow);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+
+  /* details/summary keyboard accessibility */
+  summary:focus-visible {
+    outline: 2px solid var(--color-ez-yellow);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+}

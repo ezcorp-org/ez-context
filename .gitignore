@@ -1,0 +1,32 @@
+.planning/
+tasks/
+node_modules
+dist
+coverage
+.ez-search
+*.tsbuildinfo
+
+# Environment & secrets
+.env*
+
+# IDE / editor
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Benchmark caches
+bench/.cache/
+
+# Playwright MCP artifacts
+.playwright-mcp/
+
+# Screenshots
+*.png

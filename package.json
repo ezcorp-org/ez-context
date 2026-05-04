@@ -1,0 +1,84 @@
+{
+  "name": "@ez-corp/ez-context",
+  "version": "0.1.14",
+  "description": "Extract coding conventions and generate AI context files (CLAUDE.md, AGENTS.md, Cursor rules, Copilot instructions) with semantic drift detection",
+  "type": "module",
+  "license": "ISC",
+  "keywords": [
+    "ai",
+    "context",
+    "conventions",
+    "claude",
+    "cursor",
+    "copilot",
+    "agents",
+    "drift-detection"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ezcorp-org/ez-context.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ezcorp-org/ez-context/issues"
+  },
+  "homepage": "https://github.com/ezcorp-org/ez-context#readme",
+  "publishConfig": {
+    "access": "public"
+  },
+  "engines": {
+    "node": ">=20.19.0"
+  },
+  "bin": {
+    "ez-context": "./dist/cli.js"
+  },
+  "main": "./dist/index.js",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "files": [
+    "dist/",
+    "!dist/ez-context",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "tsdown",
+    "compile": "bun run build && bun build src/cli.ts --compile --outfile dist/ez-context",
+    "dev": "tsx src/cli.ts",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "bench": "vitest bench",
+    "bench:accuracy": "vitest run bench/accuracy.bench.ts",
+    "bench:quality": "vitest run bench/output-quality.bench.ts",
+    "bench:perf": "vitest bench bench/performance.bench.ts",
+    "bench:real-world": "tsx bench/real-world.ts",
+    "lint": "eslint --no-error-on-unmatched-pattern src/ test/",
+    "typecheck": "tsc --noEmit -p tsconfig.test.json"
+  },
+  "dependencies": {
+    "@ez-corp/ez-search": "1.3.4",
+    "chalk": "^5.6.2",
+    "commander": "^14.0.3",
+    "globby": "^14.0.0",
+    "js-yaml": "^4",
+    "ora": "^9.3.0",
+    "smol-toml": "^1.6.1",
+    "ts-morph": "^27",
+    "zod": "^4.0.0"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.0.0",
+    "@types/js-yaml": "^4.0.9",
+    "@types/node": "^22.0.0",
+    "@vitest/coverage-v8": "^4.0.18",
+    "eslint": "^9.0.0",
+    "tsdown": "^0.20.0",
+    "tsx": "^4.21.0",
+    "typescript": "^5.0.0",
+    "typescript-eslint": "^8.0.0",
+    "vitest": "^4.0.0"
+  }
+}
